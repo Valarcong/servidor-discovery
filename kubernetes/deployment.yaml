@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: servidor-discovery-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: servidor-discovery
+  template:
+    metadata:
+      labels:
+        app: servidor-discovery
+    spec:
+      containers:
+        - name: servidor-discovery
+          image: servidor-discovery:1.0
+          ports:
+            - containerPort: 8761
